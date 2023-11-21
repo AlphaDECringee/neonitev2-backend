@@ -1,0 +1,540 @@
+[
+    {
+        "namespace": "fn",
+        "accountId": "epic",
+        "creatorName": "Epic",
+        "mnemonic": "playlist_defaultsolo",
+        "linkType": "BR:Playlist",
+        "metadata": {
+            "parent_set": "set_br_playlists",
+            "favorite_override": "set_br_playlists",
+            "play_history_override": "set_br_playlists",
+            "alt_title": {
+                "de": "Solo",
+                "ru": "В одиночку",
+                "ko": "솔로",
+                "pt-BR": "Solo",
+                "en": "Solo",
+                "it": "Singolo",
+                "fr": "Solo",
+                "zh-CN": "",
+                "es": "En solitario",
+                "es-MX": "En solitario",
+                "zh": "",
+                "ar": "فردي",
+                "zh-Hant": "",
+                "ja": "ソロ",
+                "pl": "Solo",
+                "es-419": "En solitario",
+                "tr": "Tekli"
+            },
+            "image_url": "https://cdn2.unrealengine.com/ogbr-solo-640-640x360-0f92e118028a.jpg",
+            "product_tag": "Product.BR.Build.Solo",
+            "image_urls": {
+                "url_s": "https://cdn2.unrealengine.com/ogbr-solo-640-640x360-0f92e118028a.jpg",
+                "url_xs": "https://cdn2.unrealengine.com/ogbr-solo-640-640x360-0f92e118028a.jpg",
+                "url_m": "https://cdn2.unrealengine.com/ogbr-solo-640-640x360-0f92e118028a.jpg",
+                "url": "https://cdn2.unrealengine.com/ogbr-solo-640-640x360-0f92e118028a.jpg"
+            },
+            "matchmaking": {
+                "override_playlist": "playlist_defaultsolo"
+            },
+            "video_vuid": "taqdZkWyokbCyEFWld",
+            "title": "Solo"
+        },
+        "version": 95,
+        "active": true,
+        "disabled": false,
+        "created": "2021-10-01T00:56:43.870Z",
+        "published": "2023-11-03T08:26:11.189Z",
+        "descriptionTags": [],
+        "moderationStatus": "Unmoderated"
+    },
+    {
+        "namespace": "fn",
+        "accountId": "epic",
+        "creatorName": "Epic",
+        "mnemonic": "playlist_defaultduo",
+        "linkType": "BR:Playlist",
+        "metadata": {
+            "parent_set": "set_br_playlists",
+            "favorite_override": "set_br_playlists",
+            "play_history_override": "set_br_playlists",
+            "alt_title": {
+                "de": "Duo",
+                "ru": "Парные сражения",
+                "ko": "듀오",
+                "pt-BR": "Duplas",
+                "en": "Duo",
+                "it": "Coppie",
+                "fr": "Duos",
+                "zh-CN": "",
+                "es": "Dúos",
+                "es-MX": "En dúo",
+                "zh": "",
+                "ar": "ثنائي",
+                "zh-Hant": "",
+                "ja": "デュオ",
+                "pl": "Pary",
+                "es-419": "En dúo",
+                "tr": "Çiftli"
+            },
+            "image_url": "https://cdn2.unrealengine.com/ogbr-duos-640-640x360-bae457925977.jpg",
+            "product_tag": "Product.BR.Build.Duo",
+            "image_urls": {
+                "url_s": "https://cdn2.unrealengine.com/ogbr-duos-640-640x360-bae457925977.jpg",
+                "url_xs": "https://cdn2.unrealengine.com/ogbr-duos-640-640x360-bae457925977.jpg",
+                "url_m": "https://cdn2.unrealengine.com/ogbr-duos-640-640x360-bae457925977.jpg",
+                "url": "https://cdn2.unrealengine.com/ogbr-duos-640-640x360-bae457925977.jpg"
+            },
+            "matchmaking": {
+                "override_playlist": "playlist_defaultduo"
+            },
+            "video_vuid": "taqdZkWyokbCyEFWld",
+            "title": "Duo"
+        },
+        "version": 95,
+        "active": true,
+        "disabled": false,
+        "created": "2021-10-01T00:56:46.389Z",
+        "published": "2023-11-03T08:25:34.690Z",
+        "descriptionTags": [],
+        "moderationStatus": "Unmoderated"
+    },
+    {
+        "namespace": "fn",
+        "accountId": "epic",
+        "creatorName": "Epic",
+        "mnemonic": "playlist_trios",
+        "linkType": "BR:Playlist",
+        "metadata": {
+            "parent_set": "set_br_playlists",
+            "favorite_override": "set_br_playlists",
+            "play_history_override": "set_br_playlists",
+            "alt_title": {
+                "de": "Trio",
+                "ru": "Трио",
+                "ko": "트리오",
+                "pt-BR": "Trios",
+                "en": "Trio",
+                "it": "Terzetti",
+                "fr": "Trios",
+                "zh-CN": "",
+                "es": "Tríos",
+                "es-MX": "En trío",
+                "zh": "",
+                "ar": "ثلاثي",
+                "zh-Hant": "",
+                "ja": "トリオ",
+                "pl": "Trójki",
+                "es-419": "En trío",
+                "tr": "Üçlü"
+            },
+            "image_url": "https://cdn2.unrealengine.com/ogbr-trios-640-640x360-522fe9b4f8fb.jpg",
+            "product_tag": "Product.BR.Build.Trio",
+            "image_urls": {
+                "url_s": "https://cdn2.unrealengine.com/ogbr-trios-640-640x360-522fe9b4f8fb.jpg",
+                "url_xs": "https://cdn2.unrealengine.com/ogbr-trios-640-640x360-522fe9b4f8fb.jpg",
+                "url_m": "https://cdn2.unrealengine.com/ogbr-trios-640-640x360-522fe9b4f8fb.jpg",
+                "url": "https://cdn2.unrealengine.com/ogbr-trios-640-640x360-522fe9b4f8fb.jpg"
+            },
+            "matchmaking": {
+                "override_playlist": "playlist_trios"
+            },
+            "video_vuid": "taqdZkWyokbCyEFWld",
+            "title": "Trio"
+        },
+        "version": 95,
+        "active": true,
+        "disabled": false,
+        "created": "2021-10-01T00:56:45.053Z",
+        "published": "2023-11-03T08:28:43.403Z",
+        "descriptionTags": [],
+        "moderationStatus": "Unmoderated"
+    },
+    {
+        "namespace": "fn",
+        "accountId": "epic",
+        "creatorName": "Epic",
+        "mnemonic": "playlist_defaultsquad",
+        "linkType": "BR:Playlist",
+        "metadata": {
+            "parent_set": "set_br_playlists",
+            "favorite_override": "set_br_playlists",
+            "play_history_override": "set_br_playlists",
+            "alt_title": {
+                "de": "Team",
+                "ru": "Бои отрядов",
+                "ko": "스쿼드",
+                "pt-BR": "Esquadrões",
+                "en": "Squad",
+                "it": "Squadre",
+                "fr": "Sections",
+                "zh-CN": "",
+                "es": "Escuadrones",
+                "es-MX": "En escuadrón",
+                "zh": "",
+                "ar": "فِرق",
+                "zh-Hant": "",
+                "ja": "スクワッド",
+                "pl": "Oddziały",
+                "es-419": "En escuadrón",
+                "tr": "Ekipli"
+            },
+            "image_url": "https://cdn2.unrealengine.com/ogbr-squads-640-640x360-6231add9fe53.jpg",
+            "product_tag": "Product.BR.Build.Squad",
+            "image_urls": {
+                "url_s": "https://cdn2.unrealengine.com/ogbr-squads-640-640x360-6231add9fe53.jpg",
+                "url_xs": "https://cdn2.unrealengine.com/ogbr-squads-640-640x360-6231add9fe53.jpg",
+                "url_m": "https://cdn2.unrealengine.com/ogbr-squads-640-640x360-6231add9fe53.jpg",
+                "url": "https://cdn2.unrealengine.com/ogbr-squads-640-640x360-6231add9fe53.jpg"
+            },
+            "tagline": "",
+            "matchmaking": {
+                "override_playlist": "playlist_defaultsquad"
+            },
+            "video_vuid": "taqdZkWyokbCyEFWld",
+            "title": "Squad"
+        },
+        "version": 95,
+        "active": true,
+        "disabled": false,
+        "created": "2021-10-01T00:56:42.938Z",
+        "published": "2023-11-03T08:25:06.100Z",
+        "descriptionTags": [],
+        "moderationStatus": "Unmoderated"
+    },
+    {
+        "namespace": "fn",
+        "accountId": "epic",
+        "creatorName": "Epic",
+        "mnemonic": "playlist_papaya",
+        "linkType": "BR:Playlist",
+        "metadata": {
+            "alt_title": {
+                "de": "Party Royale",
+                "ru": "Королевская вечеринка",
+                "ko": "파티로얄",
+                "pt-BR": "Festa Royale",
+                "it": "Party Reale",
+                "fr": "Fête royale",
+                "zh-CN": "",
+                "es": "Fiesta magistral",
+                "es-MX": "Fiesta campal",
+                "zh": "",
+                "ar": "الحفل الملكي",
+                "zh-Hant": "",
+                "ja": "パーティーロイヤル",
+                "pl": "Królewska Impreza",
+                "es-419": "Fiesta campal",
+                "tr": "Çılgın Parti"
+            },
+            "image_url": "https://cdn2.unrealengine.com/partyroyale-1920-1920x1080-7001724bc7ab.jpg",
+            "ratings": {
+                "rating_received_time": "2023-11-15T23:10:56.889Z",
+                "cert_id": "c45968aa-ecc7-4fff-8142-12502e85ac3f",
+                "boards": {
+                    "ACB": {
+                        "descriptors": [
+                            "ACB_Violence",
+                            "ACB_GEMCO"
+                        ],
+                        "rating_overridden": false,
+                        "rating": "ACB_AGE_M",
+                        "initial_rating": "ACB_AGE_M",
+                        "interactive_elements": [
+                            "IE_UsersInteract",
+                            "IE_InGamePurchases_v7_1"
+                        ]
+                    },
+                    "PEGI": {
+                        "descriptors": [
+                            "PEGI_ModerateViolence"
+                        ],
+                        "rating_overridden": false,
+                        "rating": "PEGI_AGE_12",
+                        "initial_rating": "PEGI_AGE_12",
+                        "interactive_elements": [
+                            "IE_UsersInteract",
+                            "IE_InGamePurchases_v7_1"
+                        ]
+                    },
+                    "Generic": {
+                        "descriptors": [
+                            "GEN_ModerateViolence"
+                        ],
+                        "rating_overridden": false,
+                        "rating": "GEN_AGE_12",
+                        "initial_rating": "GEN_AGE_12",
+                        "interactive_elements": [
+                            "IE_UsersInteract",
+                            "IE_InGamePurchases_v7_1"
+                        ]
+                    },
+                    "ClassInd": {
+                        "descriptors": [
+                            "ClassInd_Violencia",
+                            "ClassInd_LinguagemImpropria"
+                        ],
+                        "rating_overridden": false,
+                        "rating": "CLASSIND_AGE_12",
+                        "initial_rating": "CLASSIND_AGE_12",
+                        "interactive_elements": [
+                            "IE_UsersInteract",
+                            "IE_InGamePurchases_v7_1"
+                        ]
+                    },
+                    "GRAC": {
+                        "descriptors": [
+                            "GRAC_Violence_v7_1"
+                        ],
+                        "rating_overridden": false,
+                        "rating": "GRAC_AGE_12",
+                        "initial_rating": "GRAC_AGE_12",
+                        "interactive_elements": [
+                            "IE_UsersInteract",
+                            "IE_InGamePurchases_v7_1"
+                        ]
+                    },
+                    "USK": {
+                        "descriptors": [
+                            "USK_FantasyGewalt_v9_0"
+                        ],
+                        "rating_overridden": false,
+                        "rating": "USK_AGE_12",
+                        "initial_rating": "USK_AGE_12",
+                        "interactive_elements": [
+                            "IE_UsersInteract",
+                            "IE_InGamePurchases_v7_1"
+                        ]
+                    },
+                    "ESRB": {
+                        "descriptors": [
+                            "ESRB_Violence"
+                        ],
+                        "rating_overridden": false,
+                        "rating": "ESRB_AGE_T",
+                        "initial_rating": "ESRB_AGE_T",
+                        "interactive_elements": [
+                            "IE_UsersInteract",
+                            "IE_InGamePurchases_v7_1"
+                        ]
+                    },
+                    "Russia": {
+                        "descriptors": [
+                            "RUS_Violence_v7_0"
+                        ],
+                        "rating_overridden": false,
+                        "rating": "RUSSIA_AGE_12",
+                        "initial_rating": "RUSSIA_AGE_12",
+                        "interactive_elements": [
+                            "IE_UsersInteract",
+                            "IE_InGamePurchases_v7_1"
+                        ]
+                    }
+                }
+            },
+            "image_urls": {
+                "url_s": "https://cdn2.unrealengine.com/partyroyale-480-480x270-a4ce24699034.jpg",
+                "url_xs": "https://cdn2.unrealengine.com/partyroyale-256-256x144-932b805e9fb7.jpg",
+                "url_m": "https://cdn2.unrealengine.com/partyroyale-640-640x360-983da0123af2.jpg",
+                "url": "https://cdn2.unrealengine.com/partyroyale-1920-1920x1080-7001724bc7ab.jpg"
+            },
+            "matchmaking": {
+                "override_playlist": "playlist_papaya"
+            },
+            "title": "Party Royale"
+        },
+        "version": 95,
+        "active": true,
+        "disabled": false,
+        "created": "2021-10-01T00:56:45.010Z",
+        "published": "2023-11-15T23:18:49.208Z",
+        "descriptionTags": [],
+        "moderationStatus": "Approved",
+        "discoveryIntent": "PUBLIC"
+    },
+    {
+        "namespace": "fn",
+        "accountId": "epic",
+        "creatorName": "Epic",
+        "mnemonic": "set_br_playlists",
+        "linkType": "ModeSet",
+        "metadata": {
+            "image_url": "https://cdn2.unrealengine.com/ogbr-logo-1920-1920x1080-642ac8e12fc1.jpg",
+            "image_urls": {
+                "url_s": "https://cdn2.unrealengine.com/ogbr-logo-480-480x270-2d0521c07edc.jpg",
+                "url_xs": "https://cdn2.unrealengine.com/ogbr-logo-256-256x144-25b34d79ca46.jpg",
+                "url_m": "https://cdn2.unrealengine.com/ogbr-logo-640-640x360-50590a2dfe12.jpg",
+                "url": "https://cdn2.unrealengine.com/ogbr-logo-1920-1920x1080-642ac8e12fc1.jpg"
+            },
+            "title": "Battle Royale",
+            "locale": "en",
+            "video_vuid": "CaGHsWoMJxMGUDasbB",
+            "sub_link_codes": [
+                "playlist_defaultsolo",
+                "playlist_defaultduo",
+                "playlist_trios",
+                "playlist_defaultsquad"
+            ],
+            "alt_title": {
+                "de": "Battle Royale",
+                "ru": "Королевская битва",
+                "ko": "배틀로얄",
+                "pt-BR": "Battle Royale",
+                "it": "Battaglia reale",
+                "fr": "Battle Royale",
+                "zh-CN": "",
+                "es": "Battle Royale",
+                "es-MX": "Batalla campal",
+                "zh": "",
+                "ar": "باتل رويال",
+                "zh-Hant": "",
+                "ja": "バトルロイヤル",
+                "pl": "Battle Royale",
+                "es-419": "Batalla campal",
+                "tr": "Battle Royale"
+            },
+            "alt_tagline": {
+                "de": "Überlebe allein in einer Schlacht bis auf den letzten Spieler.",
+                "ru": "Отправляйтесь на битву в одиночку и переживите всех соперников.",
+                "ko": "죽느냐 사느냐... 혼자서 싸우는 서바이벌 혈투!",
+                "pt-BR": "Entre sozinho em uma batalha para ser o último sobrevivente.",
+                "it": "Combatti in solitaria fino a diventare l'ultimo superstite.",
+                "fr": "Combattez en solitaire et soyez le dernier survivant.",
+                "zh-CN": "",
+                "es": "Entra en solitario en un combate para ser el último en pie.",
+                "es-MX": "Entra por tu cuenta a un combate y pelea hasta que solo quedes tú en pie.",
+                "zh": "",
+                "ar": "خُض المعركة بمفردك لتصبح آخر من يتبقى من اللاعبين.",
+                "zh-Hant": "",
+                "ja": "単身でバトルに飛び込み、最後の1人になるまで生き残れ。",
+                "pl": "Walcz samotnie w bitwie do ostatniego.",
+                "es-419": "Entra por tu cuenta a un combate y pelea hasta que solo quedes tú en pie.",
+                "tr": "Savaşa tek başına gir ve hayatta kalan son kişi ol."
+            },
+            "ratings": {
+                "rating_received_time": "2023-11-16T00:00:00.575Z",
+                "cert_id": "c45968aa-ecc7-4fff-8142-12502e85ac3f",
+                "boards": {
+                    "ACB": {
+                        "descriptors": [
+                            "ACB_Violence",
+                            "ACB_GEMCO"
+                        ],
+                        "rating_overridden": false,
+                        "rating": "ACB_AGE_M",
+                        "initial_rating": "ACB_AGE_M",
+                        "interactive_elements": [
+                            "IE_UsersInteract",
+                            "IE_InGamePurchases_v7_1"
+                        ]
+                    },
+                    "PEGI": {
+                        "descriptors": [
+                            "PEGI_ModerateViolence"
+                        ],
+                        "rating_overridden": false,
+                        "rating": "PEGI_AGE_12",
+                        "initial_rating": "PEGI_AGE_12",
+                        "interactive_elements": [
+                            "IE_UsersInteract",
+                            "IE_InGamePurchases_v7_1"
+                        ]
+                    },
+                    "Generic": {
+                        "descriptors": [
+                            "GEN_ModerateViolence"
+                        ],
+                        "rating_overridden": false,
+                        "rating": "GEN_AGE_12",
+                        "initial_rating": "GEN_AGE_12",
+                        "interactive_elements": [
+                            "IE_UsersInteract",
+                            "IE_InGamePurchases_v7_1"
+                        ]
+                    },
+                    "ClassInd": {
+                        "descriptors": [
+                            "ClassInd_Violencia",
+                            "ClassInd_LinguagemImpropria"
+                        ],
+                        "rating_overridden": false,
+                        "rating": "CLASSIND_AGE_12",
+                        "initial_rating": "CLASSIND_AGE_12",
+                        "interactive_elements": [
+                            "IE_UsersInteract",
+                            "IE_InGamePurchases_v7_1"
+                        ]
+                    },
+                    "GRAC": {
+                        "descriptors": [
+                            "GRAC_Violence_v7_1"
+                        ],
+                        "rating_overridden": false,
+                        "rating": "GRAC_AGE_12",
+                        "initial_rating": "GRAC_AGE_12",
+                        "interactive_elements": [
+                            "IE_UsersInteract",
+                            "IE_InGamePurchases_v7_1"
+                        ]
+                    },
+                    "USK": {
+                        "descriptors": [
+                            "USK_FantasyGewalt_v9_0"
+                        ],
+                        "rating_overridden": false,
+                        "rating": "USK_AGE_12",
+                        "initial_rating": "USK_AGE_12",
+                        "interactive_elements": [
+                            "IE_UsersInteract",
+                            "IE_InGamePurchases_v7_1"
+                        ]
+                    },
+                    "ESRB": {
+                        "descriptors": [
+                            "ESRB_Violence"
+                        ],
+                        "rating_overridden": false,
+                        "rating": "ESRB_AGE_T",
+                        "initial_rating": "ESRB_AGE_T",
+                        "interactive_elements": [
+                            "IE_UsersInteract",
+                            "IE_InGamePurchases_v7_1"
+                        ]
+                    },
+                    "Russia": {
+                        "descriptors": [
+                            "RUS_Violence_v7_0"
+                        ],
+                        "rating_overridden": false,
+                        "rating": "RUSSIA_AGE_12",
+                        "initial_rating": "RUSSIA_AGE_12",
+                        "interactive_elements": [
+                            "IE_UsersInteract",
+                            "IE_InGamePurchases_v7_1"
+                        ]
+                    }
+                }
+            },
+            "product_tag": "Product.BR.Build",
+            "fallback_links": {
+                "graceful": "playlist_respawn_24_alt"
+            },
+            "tagline": "The battle is building! \r\n Drop into the Battle Royale. Loot, build, explore, and fight in a game of 100 players competing to be the last one standing.",
+            "corresponding_sets": {
+                "ranked": "set_habanero_playlists"
+            },
+            "default_sub_link_code": "playlist_defaultsquad"
+        },
+        "version": 1,
+        "active": true,
+        "disabled": false,
+        "created": "2022-06-30T17:57:54.767Z",
+        "published": "2023-11-16T17:00:34.973Z",
+        "descriptionTags": [],
+        "moderationStatus": "Approved",
+        "lastActivatedDate": "2022-06-30T17:57:54.770Z",
+        "discoveryIntent": "PUBLIC"
+    }
+]
