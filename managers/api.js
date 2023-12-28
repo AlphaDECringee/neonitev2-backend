@@ -422,7 +422,7 @@ module.exports = (app) => {
 		const {season} = getSeasonInfo(req);
 		if(season >= 26.30)
 			return res.json(require("../responses/shopv2.json"));
-		if(season == "Cert" || season == "Live"){
+		if(season == "Cert" || season == "Live" || season <= 3.5){
 			return res.status(404).end();
 		}
 		else{
@@ -444,35 +444,6 @@ module.exports = (app) => {
 	//datarouter
 	app.post('/datarouter/api/v1/public/*', (req, res) => {
 		res.status(204)
-		/*try{
-			const jsonKey = Object.keys(req.body)[0];
-			const jsonString = JSON.stringify(jsonKey, null, 2);
-			const jsonData = JSON.parse(jsonString);
-			const regex = /SessionStart/
-			if (regex.test(jsonData)) {
-				NeoLog.Debug("Reverting Frontend back to defaults")
-				filePath = 'hotfixes/DefaultGameUserSettings.ini'
-				const contentToWrite = ""
-				fs.writeFile(filePath, contentToWrite, 'utf8', (err) => {
-					if (err) {console.error('Error writing file:', err);} 
-				});
-			}
-			season = req.headers["user-agent"].split('-')[1]
-			if (season == "10.40") {
-				if (req.body["Events"][1]["GameState"] == "Athena_GameState_C") {
-					if(req.body["Events"][2]["PlaylistName"] == "Playlist_Music_Highest"){ //only do it for the end event
-						NeoLog.Debug("Changing Frontend to the blackhole")
-						filePath = 'hotfixes/DefaultGameUserSettings.ini'
-						const contentToWrite = "[/Script/FortniteGame.FortGameUserSettings]\nUserPreferredFrontend=NoBernieNo";
-						fs.writeFile(filePath, contentToWrite, 'utf8', (err) => {
-						if (err) {console.error('Error writing file:', err);}
-						});			
-					}
-				}
-			}
-			else{res.status(204)}
-		}
-		catch{}*/
 	});
 
 	//presence ?
@@ -525,8 +496,373 @@ module.exports = (app) => {
 	// ?
 	app.post("/fortnite/api/game/v2/profileToken/verify/*", (req, res) => { res.status(204).end() })
 
-	//keychain
-	app.get('/fortnite/api/storefront/v2/keychain', (req, res) => {
-		res.json(require("../responses/keychain.json")).status(200).end();
+	app.get('/api/v1/namespace/fn/worlds/accessibleTo/:accountID', (req, res) => {
+		res.json([
+			{
+			  "world": {
+				"namespaceId": "fn",
+				"worldId": "0698808c300847598130d19d9ed15d6d",
+				"ownerAccountId": req.params.accountID,
+				"version": 0,
+				"currentVersion": 0,
+				"name": "1",
+				"createdAt": "2023-12-04T01:48:27.732497643Z",
+				"updatedAt": "2023-12-04T01:48:27.736925445Z",
+				"sanction": null,
+				"metadataConstraint": "juno_default",
+				"metadata": {
+				  "mode": "Sandbox",
+				  "friendlyCreatures": "On",
+				  "hostileCreatures": "Off",
+				  "npcs": "On",
+				  "dropInventoryOnDeath": "On",
+				  "seed": 108257004,
+				  "death": "On",
+				  "temperature": "Off",
+				  "thumbnailTableRowName": "Grassland_01",
+				  "staminaDrain": "On",
+				  "hunger": "Off"
+				},
+				"session": {
+				  "owningSessionId": null,
+				  "sessionKey": null,
+				  "currentPlayers": null,
+				  "sessionCreatedAt": null,
+				  "lastServerHeartbeat": null,
+				  "totalSecondsPlayed": 0
+				}
+			  },
+			  "grants": [],
+			  "session": null
+			},
+			{
+			  "world": {
+				"namespaceId": "fn",
+				"worldId": "d5c7520e2b534046b739cee2a25c4022",
+				"ownerAccountId": req.params.accountID,
+				"version": 0,
+				"currentVersion": 0,
+				"name": "4",
+				"createdAt": "2023-12-05T15:15:43.856079102Z",
+				"updatedAt": "2023-12-05T15:15:43.865613446Z",
+				"sanction": null,
+				"metadataConstraint": "juno_default",
+				"metadata": {
+				  "mode": "Survival",
+				  "friendlyCreatures": "On",
+				  "hostileCreatures": "On",
+				  "npcs": "On",
+				  "dropInventoryOnDeath": "On",
+				  "seed": 277512771,
+				  "death": "On",
+				  "temperature": "On",
+				  "thumbnailTableRowName": "Grassland_01",
+				  "staminaDrain": "On",
+				  "hunger": "On"
+				},
+				"session": {
+				  "owningSessionId": null,
+				  "sessionKey": null,
+				  "currentPlayers": null,
+				  "sessionCreatedAt": null,
+				  "lastServerHeartbeat": null,
+				  "totalSecondsPlayed": 0
+				}
+			  },
+			  "grants": [],
+			  "session": null
+			},
+			{
+			  "world": {
+				"namespaceId": "fn",
+				"worldId": "1a668a920c5e49d0b44c84630bd087e9",
+				"ownerAccountId": req.params.accountID,
+				"version": 0,
+				"currentVersion": 0,
+				"name": "2",
+				"createdAt": "2023-12-04T01:52:53.65963271Z",
+				"updatedAt": "2023-12-04T01:52:53.683499442Z",
+				"sanction": null,
+				"metadataConstraint": "juno_default",
+				"metadata": {
+				  "mode": "Sandbox",
+				  "friendlyCreatures": "On",
+				  "hostileCreatures": "Off",
+				  "npcs": "On",
+				  "dropInventoryOnDeath": "On",
+				  "seed": 1,
+				  "death": "On",
+				  "temperature": "Off",
+				  "thumbnailTableRowName": "Grassland_01",
+				  "staminaDrain": "On",
+				  "hunger": "Off"
+				},
+				"session": {
+				  "owningSessionId": null,
+				  "sessionKey": null,
+				  "currentPlayers": null,
+				  "sessionCreatedAt": null,
+				  "lastServerHeartbeat": null,
+				  "totalSecondsPlayed": 0
+				}
+			  },
+			  "grants": [],
+			  "session": null
+			},
+			{
+			  "world": {
+				"namespaceId": "fn",
+				"worldId": "fa3ebd2fa353496fa8dc790b2511e584",
+				"ownerAccountId": req.params.accountID,
+				"version": 0,
+				"currentVersion": 0,
+				"name": "3",
+				"createdAt": "2023-12-04T02:02:35.064338267Z",
+				"updatedAt": "2023-12-04T02:02:35.074813555Z",
+				"sanction": null,
+				"metadataConstraint": "juno_default",
+				"metadata": {
+				  "mode": "Survival",
+				  "friendlyCreatures": "On",
+				  "hostileCreatures": "On",
+				  "npcs": "On",
+				  "dropInventoryOnDeath": "On",
+				  "seed": 471759095,
+				  "death": "On",
+				  "temperature": "On",
+				  "thumbnailTableRowName": "Grassland_01",
+				  "staminaDrain": "On",
+				  "hunger": "On"
+				},
+				"session": {
+				  "owningSessionId": null,
+				  "sessionKey": null,
+				  "currentPlayers": null,
+				  "sessionCreatedAt": null,
+				  "lastServerHeartbeat": null,
+				  "totalSecondsPlayed": 0
+				}
+			  },
+			  "grants": [],
+			  "session": null
+			}
+		  ])
+	})
+
+	app.post('/api/v1/namespace/fn/worlds/account/:accountId', (req, res) => {
+		res.json({
+			"namespaceId": "fn",
+			"worldId": "d5c7520e2b534046b739cee2a25c4022",
+			"ownerAccountId": req.params.accountID,
+			"version": 0,
+			"currentVersion": 0,
+			"name": "4",
+			"createdAt": "2023-12-05T15:15:43.856079102Z",
+			"updatedAt": "2023-12-05T15:15:43.865613446Z",
+			"sanction": null,
+			"metadataConstraint": "juno_default",
+			"metadata": {
+			  "seed": 277512771,
+			  "mode": "Survival",
+			  "hostileCreatures": "On",
+			  "friendlyCreatures": "On",
+			  "dropInventoryOnDeath": "On",
+			  "hunger": "On",
+			  "staminaDrain": "On",
+			  "npcs": "On",
+			  "thumbnailTableRowName": "Grassland_01",
+			  "temperature": "On",
+			  "death": "On"
+			},
+			"session": {
+			  "owningSessionId": null,
+			  "sessionKey": null,
+			  "currentPlayers": null,
+			  "sessionCreatedAt": null,
+			  "lastServerHeartbeat": null,
+			  "totalSecondsPlayed": 0
+			}
+		  })
+		});
+
+		app.get('/api/v1/namespace/fn/worlds/world/:worldID/session', (req, res) => {
+			return res.status(404).json(
+				{
+					"messageVars": [
+					  req.params.worldID,
+					  "fn"
+					],
+					"errorMessage": `could not find a session record for world ID ${req.params.worldID} in namespace 'fn'`,
+					"errorCode": "errors.com.epicgames.dbs.wasp.world_session_not_found",
+					"correlationId": "FN-tauaxoS2kUuaxi4CxfGF5w",
+					"numericErrorCode": 1004,
+					"responseStatus": 404,
+					"intent": "live",
+					"originatingService": "wasp-service"
+				  }
+			)
+		});
+
+		app.get('/api/v1/namespace/fn/worlds/world/:worldId/attest/:accountId', (req, res) => {
+			res.set("Content-Type", "application/jwt;charset=utf-8")
+			return res.send("wasp~eyJraWQiOiJhdHRlc3QxIiwidHlwIjoiSldUIiwiYWxnIjoiRWREU0EifQ.eyJhY2NvdW50SWQiOiJlN2MzODg2NjRlNTQ0MmU4OWYzMGIzOTZkOWZhNzE4MyIsIm5hbWVzcGFjZUlkIjoiZm4iLCJ3b3JsZElkIjoiZDVjNzUyMGUyYjUzNDA0NmI3MzljZWUyYTI1YzQwMjIiLCJpc3MiOiJlcGljZ2FtZXMiLCJleHAiOjE3MDE3OTAyMDAsImlhdCI6MTcwMTc4OTkwMH0.ckpiVt4WaUesyICZEJ4A-k51ZxWIlvMdgbRHV5o6xp3m7hAuVt4_Tthcbf5BV0_Y9RCH4iBgv4q1bmQ4eyFyBA")
+		})
+	
+
+	app.get('/fortnite/api/storefront/v2/keychain',(req, res) => {
+		const {season} = getSeasonInfo(req);
+		const keychain = require("../responses/keychain.json")
+
+		const EventKeychainManager = {
+			"Marshmello Concert":[
+				"A9AFB4A346420DB1399A2FB2065528F5:Zjzo+CaLNmCygplzQo2wUL4LT33DEiL6qZWE2R0EYMg="
+			],
+			"Monster Vs Robot":[
+				"79F7D9C856E8CF354109D3298F076C06:Ak3TOM0i0Mq/KYxd7SDlSuS7o55USaf+urL6WqnmalY="
+			],
+			"The End Event Season 10":[
+				"8C623F6A49CFF9ADC7895A466CA1C896:kLmYdLi+jOBs2k+B/UxrCcPSdvuNYTha0xl9+SvUzJU="
+			],
+			"StarWars Event":[
+				"0C2DFF3432352A23684E05B0794DFFC7:FG55cmgdBnszsr5pS0aBC44NVl7OyI+AuOXxALyaNKA=",
+				"37B3D2284CB3924E6592C2D1D11451E4:CMJclyQ1I9iY+VkDiajhGxxYQmZGHrTAlEl/wtlT+pk=",
+				"F71D60AE5231E90CEA7F53D90DC4F007:ver8B06IS0up7tNYy03zkhCl+CrTl3czgmXPYYONcM8=",
+				"FBAC0AD8C03AAB2DC3BC077597517179:5oj8B4R53plPxRictMN6QkQ741CibMbmzRJYIDIQ5iM="
+			],
+			"Travis Scott":[
+				"8734362B2A2A8B0FBC9EDE6160627E1D:8ZsoLeTeezxjoIxnNfUrNf61XfqMEKfnyTb3u4o/X6g=",
+			],
+			"Doomsday device event":[
+				"F51C8301B1C9BE9D4C4F48ED2C0FE067:+MsgNTH4cF1Mr4mjNVZVgsf3GBgjSjYn2yRZn2fE70A=",
+			],
+			"Devour of Worlds Event":[
+				"C60475E046D0F0FBCFE6DE6F9E040E0E:Wc6IzWuqnm7EHqcSx14i6KwXwl4+PmQq180ESMdR+08=",
+			],
+			"Rift Tour":[
+				"6A2047910081947B9A5DCF542A9AEBE5:V/jMTWL+zbqeIlKCE9+SM3+X69aYbt/cN0+G1D0GBQU=",
+				"71C3BFE2AF0BC8DE7BC3735614CE6263:hNLsvUTUw0cw1WrfOEjm7oSGPfpEZer6R0G7F2El6Q0=",
+				"7F5ACEFE3F67BC0CCEB59A4E8EB82BAF:iDG2HB2LypEtzw5/EjKVpJmQ1o30BE3nVv01rOTyq64=",
+				"8D578CF915DB851F9BE73C937D3565E4:Xk8kUK9cut4tXr0VQjufZdoepp+TzGmlDA7fzYA1rAc=",
+				"BE20AAF89FE897368E52AAA193DEEB53:jHRZho9v4IKzFzk51RD0nAVFCZ27vIwcstPkdQeSupc=",
+			],
+			"SkyFire":[
+				"BE20AAF89FE897368E52AAA193DEEB53:jHRZho9v4IKzFzk51RD0nAVFCZ27vIwcstPkdQeSupc=:SkyFire_Playlist",
+				"955C5EA2C28764221AF554097C5CE9E6:jzkT7NbAZpMlRIC/qnSOUAcAz6CXh00ZF3EK+GfWbGQ=:SkyFire_Event",
+			],
+			"Chapter 2 Finale":[
+				"B3A4B83DA3274522D4B9F117DCF9A0B3:y5n7vfr0uucr+psZzb2F3g45pWUsv3i3j/M6bl78Z9A=",
+				"9972857939D69D9799D6800D0D70ACE4:J5NKMyEoVZ2zBlCiTGN65eKAAHStaOO+bVGbJfsFI/k="
+			],
+			"Collision Event":[
+				"1398A4C2E6C3954EDDC49F85C5AB251B:qF0+04jSaU0kgws/RigbWpwnyPQMDnK+4Vf4G0tmTns=:Collision_Playlist",
+				"1301F2838EB647C3D111CC1A61C7D8C3:OuEyyvjyHEYgHt7u8KA2UvKxsCBLlwmwq01D/ErBAWc=:Collision_Event"
+			],
+			"Fracture Event":[
+				"C624A3D18A8A2494288EE915D11518B7:/q+bDo9akBx2JId6QvLQW1YoN4jBEEn+QdzBXjB3OpQ=",
+				"F00E08CB606091AEFAB37D9B0A01B833:uEmoAK5xdbd8KefVf9o7uJiGcGTYk2r9QevsGe4vBII=",
+			],
+			"The Big Bang LTM":[
+				"020BFB18192345A6CF1AB75A66D879DD:T9UgbPCAqJBtxypUfcH/MqLBL5D8dc2rh8H6/La3FDk=",
+				"0C81D16F6CF41C862D0B097DBE5E624A:qIzymfmYIWAQbAhalU2MQOR6vwmj42xHgtW41rhIev4=",
+				"11A2A4F6D2D907D8718A91CB05AF99F0:psD4DdrmKRTtrbaAkoDjTtrC0zZAclPsWm93aw/e6hA=",
+				"23DEA89BDC537501407CE442F9D7488B:MBhNDIgF/lTCfsqwj8VvjD1WBYdv1MvrwT+k8MCyDzg=",
+				"2830AEF5C09E976B74EE1E194E3B988B:UduuLiZnBhH43ymHQqejG91JFUIoYCydpUpQ6SWBWgY=",
+				"40B325F1EBCD65F9B8AA3E5F27EAA4FE:NSejpmJhzFwD65Zzt6habPR6vlesovU2DlEo5lyVM8M=",
+				"605624BEED560EAFCF45CAD7E2FB4E48:kfYhFrpDNLuCuE016d+F3Oh0NAcQl+TJbb/TFRfEjy4=",
+				"704725A33203935E6E576D64D44905D4:tKWz7Ob1wPsOnzQzOqdJ7Cd5e9P+VVXJL7DIdww6VrM=",
+				"737D758CBCCFF589BCDA9236930EDA52:KToMoMliD/DoJnxL11MpgqgCsHHUJFhJxj8nkixIKiw=",
+				"7DD96358E6FCB34A5221D2E77087D23D:1H4kxS6zepB460v5K2/w2lyuCdj4Qsni15F1qSSPVdQ=",
+				"875A2044382363BB04B7E1B02DB7F905:2YtCtIxaCocZA54jyloILrq30zwBJx3UTRVykYiVy3k=",
+				"8B57E50789D21E269BDBE46184F88FA0:G4bUrNa7X6RXd3/vvJyRLQr7dhSiPo2+yuKrp24RXN0=",
+				"8BCF8182A37A4EE321F5078954A75122:wLfDsgM7jhjuvKHr3zFxWs4pDn12nRiG4RVQfuNSTuM=",
+				"8E48CAF3A86554ADE0DD49326AD1F26B:UGuqIW16b+CxBHFpGPedPqsFisX3KygBTq84QFi4ZEE=",
+				"8F7AAC929AED8C9231EA30CEC0A2A75D:1HeufgQ+oYCTosTR/ILGHFnypvS+udjy1Tsyffya+qs=",
+				"98742D3B15A7227BA2A55CBD8C3A56A1:Kvq/pUKqQb1OGD76rGoOd0odcSmRtej5KvG4r+ofOHY=",
+				"BA2A14985A7E28544995069FC9359C81:lIJvTL75n/NrsjEe4Nd+L4UQCiPcYvHaDbc5q7xJVbM=",
+				"BF54C54672DEFBD71B744A72053E4168:TL25+NVV64p19Xu6A7+VVMfNwEseRZiEZ8J0QBfIkWs=",
+				"C4982170B633DB6D2FE340A488EE425B:1XxlJtR4sc6vP0MpkwKrwCrHHTAi+GP2Pu5Az7yftcs=",
+				"C4CF3F4B73862D7CA4AD87ADEB4D073F:hPF2H1xHMyX4NRGMyy7tSpS1yf2NHs1vStN/Wq7T6aA=",
+				"CD9A2158EBA8DEC4F51A16F0F19D0F06:HKidNu7ZYT9Gsckip7xIrqxKC4lIeQ0kLGkljdqj1kE=",
+				"CED82F0AF09F2650E043A0B9CFD1BE98:ZHNIVGxs07Yus1Jm6EhAiZmpUsil0HusHS2HH0vvo+8=",
+				"DAAD9ACDD8C3690CE4D11DA2D7663DFB:OL1/ndG9SEBobBCmm/+Aqy67S8A6sebpFV4we3HFjoI=",
+				"E0C536FDC9A4B19843DCFD22638CE81A:cirXcwpB+vzrBT5pKkrJYbdGrWRBkCg+UJ+x20yU1J0=",
+				"EE02264B5DA4FA57A4C708F9DD615A87:DjEzloaeCgNBk0f3zT6m7+6TNrxu7EAolqvbsNykcuw=",
+				"EE1B544782238B556744A68B8AB52CD7:PGQPn8LVr8FLUROgBSOsmYcFi/BmNVWoBQ+kAl3uuIw=",
+				"EEEAD34DAD77926A1A7B3772FED7F0CC:jylPxC+85DXLiAlYK9bpdxMRP/kmq4Exqplkc4u27EE=",
+				"F0B824739EC4211794DDC5EF2BCAFC9B:LXBvnxBXfdFlqcr8jBqbnblCnh3kvedCvkfJjIi/lEI=",
+				"FBB56B6E711D7FC3CA29B46F712AA3A5:wtIigakPrMzOC6ZZ4Am7gJa+CNEhe7DPAr1ZOE/WZZ8=",
+				"FD61445874602D111434BFC323F72EED:fa0mRPNJPo9IM2JDITSlqseFIFccVhbjA/s7FxL+D/0=",
+				"FE4831E9E7D7012FEE138782AFA1109A:VoS2hBjPp+T+uFx1EfTAuvB6gjlEd2eA8yoh53VsjAA=",
+				"FEE2FF88D47ACD4788C23A72025AE3CB:cUGhkqZYUbnXJ4uNhMKeuDMmpzO/QqyQJXIW7d1X4mU=",
+				"52366B48F1048E512A4ADB69B1830522:4/yBC527LoHOBvjPVZZOG3vqIFRZMYJKlKuD1OgYK9Q=",
+				"9E380D6486FDC2BD798C4AC03EA99956:IG7ZP06IgAnipEmMYxb7jdt7HuXHo5u8zUpomvJYgjM=",
+			],
+		}
+		if (season == "7.30") {
+			EventKeychainManager['Marshmello Concert'].forEach(item => {
+			  keychain.push(item);
+			});
+		}
+		if (season == "9.40" || season == "9.41"){
+			EventKeychainManager['Monster Vs Robot'].forEach(item => {
+				keychain.push(item);
+			});
+		}
+		if(season == "10.40"){
+			EventKeychainManager['The End Event Season 10'].forEach(item => {
+				keychain.push(item);
+			});
+		}
+		if(season == "11.30" || season == "11.31"){
+			EventKeychainManager['StarWars Event'].forEach(item => {
+				keychain.push(item);
+			});
+		}
+		if(season == "12.41"){
+			EventKeychainManager['Travis Scott'].forEach(item => {
+				keychain.push(item);
+			})
+		}
+		if(season == "12.61"){
+			EventKeychainManager['Doomsday device event'].forEach(item => {
+				keychain.push(item);
+			})
+		}
+		if(season == "14.60"){
+			EventKeychainManager['Devour of Worlds Event'].forEach(item => {
+				keychain.push(item);
+			})
+		}
+		if(season == "17.30"){
+			EventKeychainManager['Rift Tour'].forEach(item => {
+				keychain.push(item);
+			})
+		}
+		if(season == "17.50"){
+			EventKeychainManager['SkyFire'].forEach(item => {
+				keychain.push(item);
+			})
+		}
+		if(season == "18.40"){
+			EventKeychainManager['Chapter 2 Finale'].forEach(item => {
+				keychain.push(item);
+			})
+		}
+		if(season == "20.40"){
+			EventKeychainManager['Collision Event'].forEach(item => {
+				keychain.push(item);
+			})
+		}
+		if(season == "22.40"){
+			EventKeychainManager['Fracture Event'].forEach(item => {
+				keychain.push(item);
+			})
+		}
+		else if(season == "27.11"){
+			EventKeychainManager['The Big Bang LTM'].forEach(item => {
+			  keychain.push(item);
+			});
+		}
+		res.json(keychain)
 	})
 };

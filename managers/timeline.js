@@ -7,14 +7,17 @@ var ini = require('ini')
  * @param {Express.Application} app 
  */
 
+
+function getSeasonInfo(req) {
+    const userAgent = req.headers["user-agent"];
+    const season = userAgent.split('-')[1];
+    const seasonglobal = season.split('.')[0];
+    return { season, seasonglobal };
+}
+
 module.exports = (app) => {
     app.get('/fortnite/api/calendar/v1/timeline', (req, res) => {
-        var season
-        try {
-            season = req.headers["user-agent"].split("-")[1].split(".")[0]
-        } catch {
-            season = 1
-        }
+        const { season, seasonglobal } = getSeasonInfo(req);
         var config = ini.parse(fs.readFileSync(path.join(__dirname, '../config.ini'), 'utf-8'));
         const timeline = {
             channels: {
@@ -113,8 +116,8 @@ module.exports = (app) => {
                                 activeSince: "2019-12-31T23:59:59.999Z"
                             },
                             {
-                                eventType: `EventFlag.LobbySeason${season}`,
-                                activeUntil: "2021-09-24T14:00:00.000Z",
+                                eventType: `EventFlag.LobbySeason${seasonglobal}`,
+                                activeUntil: "9999-12-31T23:59:59.999Z",
                                 activeSince: "2021-06-05T14:00:00.000Z"
                             },
                             {
@@ -192,41 +195,6 @@ module.exports = (app) => {
                                 activeSince: "2021-07-27T06:00:00.000Z"
                             },
                             {
-                                eventType: "RL01", // Fracture Event-related (Countdown)
-                                activeUntil: "9999-09-14T07:00:00.000Z",
-                                activeSince: "2021-07-27T06:00:00.000Z"
-                            },
-                            {
-                                eventType: "RL02", // Fracture Event-related (Countdown)
-                                activeUntil: "9999-09-14T07:00:00.000Z",
-                                activeSince: "2021-07-27T06:00:00.000Z"
-                            },
-                            {
-                                eventType: "RL12", // Fracture Event-related (Countdown)
-                                activeUntil: "9999-09-14T07:00:00.000Z",
-                                activeSince: "2021-07-27T06:00:00.000Z"
-                            },
-                            {
-                                eventType: "RL13", // Fracture Event-related (Countdown)
-                                activeUntil: "9999-09-14T07:00:00.000Z",
-                                activeSince: "2021-07-27T06:00:00.000Z"
-                            },
-                            {
-                                eventType: "RL14", // Fracture Event-related (Countdown)
-                                activeUntil: "9999-09-14T07:00:00.000Z",
-                                activeSince: "2021-07-27T06:00:00.000Z"
-                            },
-                            {
-                                eventType: "RL15", // Fracture Event-related (Countdown)
-                                activeUntil: "9999-09-14T07:00:00.000Z",
-                                activeSince: "2021-07-27T06:00:00.000Z"
-                            },
-                            {
-                                eventType: "RL16", // Fracture Event-related (Countdown)
-                                activeUntil: "9999-09-14T07:00:00.000Z",
-                                activeSince: "2021-07-27T06:00:00.000Z"
-                            },
-                            {
                                 eventType: "CalendarEvent_Season23_Winterfest", // Winterfest 2022
                                 activeUntil: "9999-09-14T07:00:00.000Z",
                                 activeSince: "2021-07-27T06:00:00.000Z"
@@ -249,12 +217,12 @@ module.exports = (app) => {
                             },
                             {
                                 eventType: "DL01", // Durian Event-related (Countdown)
-                                activeUntil: "2023-12-02T21:10:00.000Z",
+                                activeUntil: "2023-12-02T18:57:00.000Z",
                                 activeSince: "2020-09-09T07:00:00.000Z"
                             },
                             {
                                 eventType: "DL02", // Durian Event-related (Countdown)
-                                activeUntil: "2023-12-02T21:10:00.000Z",
+                                activeUntil: "2023-12-02T18:57:00.000Z",
                                 activeSince: "2020-09-09T07:00:00.000Z"
                             },
                             {
@@ -282,11 +250,7 @@ module.exports = (app) => {
                                 activeUntil: "9999-09-14T07:00:00.000Z",
                                 activeSince: "2015-09-14T07:00:00.000Z"
                             },
-                            {
-                                eventType: "TopSecret", //Holiday Bus(season 13)
-                                activeUntil: "9999-09-14T07:00:00.000Z",
-                                activeSince: "2015-09-14T07:00:00.000Z"
-                            },
+                            
                             /*{      
                                 eventType: "SM1",//scorch marks 13.40
                                 activeUntil: "9999-09-14T07:00:00.000Z",
@@ -882,12 +846,12 @@ module.exports = (app) => {
                             activeStorefronts: [],
                             eventNamedWeights: {},
                             activeEvents: [],
-                            seasonNumber: season,
-                            seasonTemplateId: `AthenaSeason:athenaseason${season}`,
+                            seasonNumber: seasonglobal,
+                            seasonTemplateId: `AthenaSeason:athenaseason${seasonglobal}`,
                             matchXpBonusPoints: 0,
                             eventPunchCardTemplateId: "",
                             seasonBegin: "2021-06-05T14:00:00Z",
-                            seasonEnd: "2021-09-24T14:00:00Z",
+                            seasonEnd: "9999-12-31T23:59:59.999Z",
                             seasonDisplayedEnd: "2021-09-30T04:00:00Z",
                             dailyStoreEnd: "9999-12-31T23:59:59.999Z",
                             weeklyStoreEnd: "9999-12-31T23:59:59.999Z",
@@ -901,6 +865,94 @@ module.exports = (app) => {
             cacheIntervalMins: 0.1,
             currentTime: new Date().toISOString()
         }
+
+
+        if(season == 18.40){
+            timeline.channels['client-events']['states'][0]['activeEvents'].push(
+                {
+                    eventType: "GGL01", // Chapter 2 Finale Event-related (Countdown)
+                    activeUntil: "9999-09-14T07:00:00.000Z",
+                    activeSince: "2021-07-27T06:00:00.000Z"
+                },
+                {
+                    eventType: "GGL02", // Chapter 2 Finale Event-related (Countdown)
+                    activeUntil: "9999-09-14T07:00:00.000Z",
+                    activeSince: "2021-07-27T06:00:00.000Z"
+                }
+            )
+        }
+
+        if(season == 20.40){
+            timeline.channels['client-events']['states'][0]['activeEvents'].push(
+                {
+                    eventType: "AL01", // Collision Event-related (Countdown)
+                    activeUntil: "9999-09-14T07:00:00.000Z",
+                    activeSince: "2021-07-27T06:00:00.000Z"
+                },
+                {
+                    eventType: "AL02", // Collision Event-related (Countdown)
+                    activeUntil: "9999-09-14T07:00:00.000Z",
+                    activeSince: "2021-07-27T06:00:00.000Z"
+                }
+            )
+        }
+
+        if(season == 22.40){
+            timeline.channels['client-events']['states'][0]['activeEvents'].push(
+                {
+                    eventType: "RL01", // Fracture Event-related (Countdown)
+                    activeUntil: "9999-09-14T07:00:00.000Z",
+                    activeSince: "2021-07-27T06:00:00.000Z"
+                },
+                {
+                    eventType: "RL02", // Fracture Event-related (Countdown)
+                    activeUntil: "9999-09-14T07:00:00.000Z",
+                    activeSince: "2021-07-27T06:00:00.000Z"
+                },
+                {
+                    eventType: "RL12", // Fracture Event-related (Countdown)
+                    activeUntil: "9999-09-14T07:00:00.000Z",
+                    activeSince: "2021-07-27T06:00:00.000Z"
+                },
+                {
+                    eventType: "RL13", // Fracture Event-related (Countdown)
+                    activeUntil: "9999-09-14T07:00:00.000Z",
+                    activeSince: "2021-07-27T06:00:00.000Z"
+                },
+                {
+                    eventType: "RL14", // Fracture Event-related (Countdown)
+                    activeUntil: "9999-09-14T07:00:00.000Z",
+                    activeSince: "2021-07-27T06:00:00.000Z"
+                },
+                {
+                    eventType: "RL15", // Fracture Event-related (Countdown)
+                    activeUntil: "9999-09-14T07:00:00.000Z",
+                    activeSince: "2021-07-27T06:00:00.000Z"
+                },
+                {
+                    eventType: "RL16", // Fracture Event-related (Countdown)
+                    activeUntil: "9999-09-14T07:00:00.000Z",
+                    activeSince: "2021-07-27T06:00:00.000Z"
+                }
+            )
+        }
+
+        if(seasonglobal == 7 || seasonglobal == 11 || seasonglobal == 15 || seasonglobal == 19){
+            timeline.channels['client-events']['states'][0]['activeEvents'].push({
+                eventType: "TopSecret", //Holiday Bus (S7/S11/S15/S19)
+                activeUntil: "9999-09-14T07:00:00.000Z",
+                activeSince: "2015-09-14T07:00:00.000Z"
+            })
+        }
+
+        if(seasonglobal == 14 || seasonglobal == 18 || seasonglobal == 22){
+            timeline.channels['client-events']['states'][0]['activeEvents'].push({
+                eventType: "EventFlag.HalloweenBattleBus", //Halloween Bus (S14/S18/S22)
+                activeUntil: "9999-09-14T07:00:00.000Z",
+                activeSince: "2015-09-14T07:00:00.000Z"
+            })
+        }
+
         if(config.RufusWeek2 == true){
             timeline.channels['client-events']['states'][0]['activeEvents'].push({
                 eventType: "RufusWeek2", // Rufus Week 2(Chapter 4 Season OG)

@@ -30,7 +30,7 @@ module.exports = (app) => {
 
 
 
-	app.post('/fortnite/api/game/v2/profile/:accountId/client/:command', async (req, res, next) => {
+	app.post('/fortnite/api/game/v2/profile/:accountId/client/:command', (req, res, next) => {
 		res.setHeader("Content-Type", "application/json");
 		var accountId = req.params.accountId;
 		var athenprofile = Profile.readProfile(accountId, "athena")
@@ -78,9 +78,6 @@ module.exports = (app) => {
 
 				profileData.stats["attributes"]["past_seasons"] = pastSeasons;
 			}
-			
-			
-
 			return {
 				profileData,
 				response: {
@@ -232,12 +229,14 @@ module.exports = (app) => {
 					}
 				Profile.saveProfile(accountId, "common_core", commoncore)
 
+				let shop
 				if(season >= 26.30){
-					const shop = require("../responses/shopv2.json");
+					shop = require("../responses/shopv2.json");
 				}
 				else{
 					shop = require("../responses/shopv1.json"); 
 				}
+				
 				
 				let catalogEntryToPurchase = null;
 				for (let storefront of shop.storefronts) {
@@ -346,26 +345,41 @@ module.exports = (app) => {
 				checkValidProfileID("profile0");
 				break;
 			}
+
+			case "SetItemArchivedStatusBatch": {
+				checkValidProfileID("campaign", "athena");
+
+				req.body.itemIds.forEach(itemId => {
+					if (typeof itemId === "string" && typeof req.body.archived === "boolean") {
+						Profile.changeItemAttribute(profileData, itemId, "archived", req.body.archived, profileChanges);
+					}
+				});
+				Profile.bumpRvn(athenprofile)
+
+				break;
+			}
+
 			case "QueryProfile": {
 				const grantDefaultItems = getOrCreateProfile("athena");
-				
-				async function simpleProfile(){
-					if(config.simpleProfile == true){
-						const cosmeticArrays = [
-							cosmetics.Characters,
-							cosmetics.Emotes,
-							cosmetics.BackBlings,
-							cosmetics.LoadingScreens,
-							cosmetics.WeaponWraps,
-							cosmetics.Pickaxes,
-							cosmetics.Gliders,
-							cosmetics.MusicPacks
-	
-						];
-						try{
+				function simpleProfile(){
+					try{
+						if(config.simpleProfile == true){
+							const cosmeticArrays = [
+								cosmetics.Characters,
+								cosmetics.Emotes,
+								cosmetics.BackBlings,
+								cosmetics.LoadingScreens,
+								cosmetics.WeaponWraps,
+								cosmetics.Pickaxes,
+								cosmetics.Gliders,
+								cosmetics.MusicPacks,
+								cosmetics.Contrails
+		
+							];
+						
 							cosmeticArrays.forEach(cosmeticArray => {
-								cosmeticArray.forEach(async cosmeticItem => {
-									await Profile.addItem(athenprofile, cosmeticItem, {
+								cosmeticArray.forEach(cosmeticItem => {
+									Profile.addItem(athenprofile, cosmeticItem, {
 										attributes: {
 											"max_level_bonus": 0,
 											"level": 1,
@@ -388,10 +402,9 @@ module.exports = (app) => {
 							]
 							response.multiUpdate = [grantDefaultItems.response]
 						}
-						catch{}
-					}
+					}catch{}
 				}
-
+					
 				if(season <= 10.40 || season =="Cert" || season == "Live")
 				{
 					try{//athena.items does not exist if there is no profile so just try and catch the error until it exists.
@@ -450,7 +463,9 @@ module.exports = (app) => {
 					break;
 				}
 				else{
+					
 					simpleProfile()
+					
 				}
 				break;
 			}
@@ -504,8 +519,6 @@ module.exports = (app) => {
 
 				const locker_slots_data = item.attributes.locker_slots_data;
 				let lockerSlot = locker_slots_data.slots[req.body.category];
-
-				// Define the expected locker items capacity.
 				var expectedCapacity;
 				switch (req.body.category) {
 					case "Dance":
@@ -519,7 +532,6 @@ module.exports = (app) => {
 						break;
 				}
 
-				// FIXME: It's unclear at which condition the `lockerSlot` might not exist.
 				if (!lockerSlot) {
 					lockerSlot = locker_slots_data.slots[req.body.category] = {
 						items: new Array(expectedCapacity),
@@ -752,6 +764,60 @@ module.exports = (app) => {
 				break;
 			}
 
+			case "PutModularCosmeticLoadout":{
+				const Athena = getOrCreateProfile("athena")
+				var parsedData = JSON.parse(req.body["loadoutData"])
+				var cosmesticloadout = athenprofile.items["NEONITE"]
+				if (typeof cosmesticloadout == 'undefined'){
+					Profile.modifyStat(athenprofile, "loadout_presets", {
+						"CosmeticLoadout:LoadoutSchema_Character" : {
+							"0" : "NEONITE",
+						}
+					})
+					Profile.addItem(athenprofile, "NEONITE", {
+						"templateId": "CosmeticLoadout:LoadoutSchema_Character",
+						"attributes": parsedData
+					});
+					
+					Profile.saveProfile(accountId, "athena", athenprofile)
+					Profile.bumpRvn(athenprofile)
+					Athena.response.profileChanges = {
+						"changeType" : "itemAttrChanged",
+						"itemId" : "NEONITE",
+						"attributeName" : "slots",
+						"attributeValue" : [ {
+							parsedData
+						} ]
+					}
+					response.multiUpdate = [Athena.response]
+				}
+				else{
+					athenprofile.items["NEONITE"] = {
+						"templateId": "CosmeticLoadout:LoadoutSchema_Character",
+						"attributes": parsedData
+					}
+					Profile.saveProfile(accountId, "athena", athenprofile)
+					Profile.bumpRvn(athenprofile)
+					Athena.response.profileChanges = {
+						"changeType" : "itemAttrChanged",
+						"itemId" : "NEONITE",
+						"attributeName" : "slots",
+						"attributeValue" : [ {
+							parsedData
+						} ]
+					}
+					response.multiUpdate = [Athena.response]
+				}
+
+				break;
+				//for some reason fortnite only requests this the first time changing cosmetic, changing cosmetic after the fact this does not get requested again unless booting up the game *this is not intended and will be fixed
+			}
+
+			case "ExchangeGameCurrencyForBattlePassOffer":{
+				checkValidProfileID("athena")
+				break;
+			}
+
 			case "RefundMtxPurchase": {
 				checkValidProfileID("common_core");
 
@@ -768,6 +834,8 @@ module.exports = (app) => {
 				}
 				break;
 			}
+
+			c
 
 			default: {
 				return next(new ApiException(errors.com.epicgames.fortnite.operation_not_found).with(req.params.command));

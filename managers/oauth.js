@@ -72,7 +72,7 @@ module.exports = (app) => {
 		}
 
 		res.json({
-			access_token: crypto.randomBytes(16).toString("hex"),
+			access_token: "NEONITE",
 			expires_in: 28800,
 			expires_at: "9999-12-31T23:59:59.999Z",
 			token_type: "bearer",
@@ -109,7 +109,7 @@ module.exports = (app) => {
 			"jti": "5c2585dd6fc1414784a6bc735085b2c2"
 		  }, "ciao");
 		res.json({
-			access_token: req.headers.authorization.replace("bearer ", ""),
+			access_token: "NEONITE",
 			expires_in: 28800,
 			expires_at: "9999-12-31T23:59:59.999Z",
 			token_type: "bearer",
@@ -161,16 +161,6 @@ module.exports = (app) => {
 
 		})
 	});
-
-	app.all("/fortnite/api/discovery/accessToken/:fortniteVersion", (req, res) => {
-		const useragent = req.headers["user-agent"];
-		const regex = useragent.match(/\+\+Fortnite\+Release-\d+\.\d+/);
-		res.json({
-			"branchName" : regex[0],
-			"appId" : "Fortnite",
-			"token" : `${crypto.randomBytes(10).toString("hex")}=`
-		  })
-	})
 
 	app.get("/account/api/public/account/displayName/:displayName", (req, res) => {
 		res.json({
